@@ -21,7 +21,22 @@ font-weight:100;
 text-align:center;
 letter-spacing:normal;
 }
+.typing {
+  overflow: hidden;
+  border-right: 3px solid #ccd9d1;
+  white-space: nowrap;
+  width: 0;
+  animation: typing 3s steps(15, end) forwards, blink 0.7s infinite;
+}
 
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
 h1,h2,h3{
 font-family:'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
 }
@@ -73,21 +88,26 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 padding:40px;
+display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
 }
 
-.btn{
-background:white;
-color:#4f5b74;
-padding:12px 25px;
-margin-top:20px;
-text-decoration:none;
-border-radius:30px;
-transition:0.3s;
+.btn {
+  display: inline-block;
+  background: linear-gradient(45deg, #1b5482, #31c8ff);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
 
-.btn:hover{
-background:#0bbbf5;
-color:white;
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(38, 141, 252, 0.79);
 }
 
 .about{
@@ -216,19 +236,20 @@ border:1px solid #ccc;
 border-radius:5px;
 }
 
-button{
-background:var(--primary);
-color:white;
-border:none;
-padding:10px;
-cursor:pointer;
-border-radius:5px;
+button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
-button:hover{
-background:var(--accent);
+button:hover {
+  background: var(--accent);
+  transform: scale(1.05);
 }
-
 footer{
 text-align:center;
 padding:20px;
@@ -278,4 +299,88 @@ font-weight:bold;
 
 footer a:hover{
 text-decoration:underline;
+}
+
+
+@media (max-width: 992px) {
+
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .projects-grid {
+        padding: 20px;
+    }
+
+    .card {
+        width: 80%;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .about img {
+        width: 150px;
+    }
+
+    .projects-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+    }
+
+    .video-section video {
+        width: 100%;
+        height: auto;
+    }
+
+    form {
+        width: 90%;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .logo {
+        font-size: 16px;
+    }
+
+    .social-circle {
+        width: 40px;
+        height: 40px;
+    }
+
+    .social-circle img {
+        width: 18px;
+        height: 18px;
+    }
 }
